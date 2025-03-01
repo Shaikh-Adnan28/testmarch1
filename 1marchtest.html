@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shoping Cart</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        .cart-icon {
+            cursor: pointer;
+        }
+
+        .products {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: space-around;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .product {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+            height: 350px;
+        }
+
+        .product p {
+            margin-top: 10px;
+            font-size: 17px;
+            font-weight: 600;
+        }
+
+        .product img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product button {
+            margin-top: 30px;
+            border: none;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border-radius: 20px;
+        }
+
+        .cart-popup {
+            display: none;
+            position: fixed;
+            top: 80px;
+            right: 10px;
+            background: white;
+            border: 1px solid #ddd;
+            padding: 10px;
+            width: 400px;
+            height: 500px;
+            overflow: auto;
+            object-fit: cover;
+        }
+        .cart-popup .product{
+            /* display: none; */
+            /* opacity: 0; */
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg  bg-primary p-3" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav d-flex align-items-center justify-content-center gap-5 w-100">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">about</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Blog</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="header">
+                <span class="cart-icon" onclick="toggleCart()">🛒</span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="products">
+        <div class="product">
+            <img src="freeze.jpg" alt="Product 1">
+            <p>LG - Freeze</p>
+            <button onclick="addToCart(this)" id="btn1">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="ac.jpg" alt="Product 2">
+            <p>LG - Ac</p>
+            <button onclick="addToCart(this)" id="btn1">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="washing.jpg" alt="Product 3">
+            <p>LG- Washing Machine</p>
+            <button onclick="addToCart(this)" id="btn1">Add to Cart</button>
+        </div>
+    </div>
+    <div class="cart-popup" id="cartPopup">
+        <h4>Cart Items:</h4>
+        <ul id="cartList"></ul>
+        <div class="product">
+            <img src="freeze.jpg" alt="Product 1">
+            <p>LG - Freeze</p>
+        </div>
+        <div class="product">
+            <img src="ac.jpg" alt="Product 2">
+            <p>LG - Ac</p>
+        </div>
+        <div class="product">
+            <img src="washing.jpg" alt="Product 3">
+            <p>LG- Washing Machine</p>
+        </div>
+    </div>
+
+    <script>
+
+        let cart = document.getElementById(btn1);
+         function addToCart (cart){
+            cart.innerHTML = "Added to Cart";
+         }
+
+        function toggleCart() {
+            let cartPopup = document.getElementById("cartPopup");
+            cartPopup.style.display = cartPopup.style.display === "block" ? "none" : "block";
+        }
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
